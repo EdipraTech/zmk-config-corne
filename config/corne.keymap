@@ -29,7 +29,7 @@
 #define SYM     2
 #define NUM     3
 #define FUN     4
-#define MED     5
+#define MED     5 
 
 / {
     behaviors {
