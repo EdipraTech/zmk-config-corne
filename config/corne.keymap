@@ -44,6 +44,9 @@
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
         };
+        &lt {
+            tapping-term-ms = <200>;
+        };
     };
     
     keymap {
