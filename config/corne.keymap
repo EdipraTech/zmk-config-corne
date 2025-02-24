@@ -44,9 +44,6 @@
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
         };
-        &lt {
-            tapping-term-ms = <200>;
-        };
     };
     
     keymap {
@@ -57,7 +54,7 @@
     &kp ESC  &kp Q       &kp W       &kp F       &kp P       &kp B                                   &kp J           &kp L       &kp U       &kp Y           &kp SEMI   &kp BSLH
     &kp TAB  &hm LGUI A  &hm LALT R  &hm LCTRL S &hm LSHFT T &kp G                                   &kp M           &hm LSHFT N &hm LCTRL E &hm LALT I      &hm LGUI O &kp SQT
     &kp HOME &kp Z       &hm RALT X  &kp C       &kp D       &kp V                                   &kp K           &kp H       &kp COMMA   &hm RALT DOT    &kp FSLH   &kp END
-                                        &lt MED TAB &lt NAV DEL &kp BSPC       &lt SYM SPACE &lt NUM RET     &lt FUN LALT
+                                        &hm MED TAB &hm NAV DEL &kp BSPC       &hm SYM SPACE &hm NUM RET     &lt FUN LALT
             >;
         };
 
