@@ -44,14 +44,6 @@
         };
     };
      macros {
-        rgb_ug_status_macro: rgb_ug_status_macro_0 {
-            label = "RGB_UG_STATUS";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings
-                = <&rgb_ug RGB_STATUS>;
-        };
-
         bt_0: bt_profile_macro_0 {
             label = "BT_0";
             compatible = "zmk,behavior-macro";
@@ -131,18 +123,18 @@
 
         fun_layer {
             bindings = <
-    &none &kp F12 &kp F7  &kp F8  &kp F9      &kp PSCRN                           &rgb_ug RGB_SPI &rgb_ug RGB_SAI &rgb_ug RGB_HUI &rgb_ug RGB_BRI &rgb_ug RGB_TOG &none 
-    &none &kp F11 &kp F4  &kp F5  &kp F6      &kp SLCK                            &none           &kp RSHFT       &kp RCTRL       &kp RALT        &kp RGUI        &none 
-    &none &kp F10 &kp F1  &kp F2  &kp F3      &kp PAUSE_BREAK                     &rgb_ug RGB_SPD &rgb_ug RGB_SAD &rgb_ug RGB_HUD &rgb_ug RGB_BRD &rgb_ug RGB_EFF &none 
+    &none &kp F12 &kp F7  &kp F8  &kp F9      &kp PSCRN                           &none &rgb_ug RGB_TOG &none     &none    &none    &none
+    &none &kp F11 &kp F4  &kp F5  &kp F6      &kp SLCK                            &none &kp RSHFT       &kp RCTRL &kp RALT &kp RGUI &none 
+    &none &kp F10 &kp F1  &kp F2  &kp F3      &kp PAUSE_BREAK                     &none &none           &none     &none    &none    &none 
                             &kp K_APP   &kp SPACE       &kp TAB     &none   &none   &trans
             >;
         };
 
         media_layer {
             bindings = <
-    &none &none       &none       &none       &none       &none                           &none       &bl BL_TOG    &none         &none           &none        &none 
-    &none &kp LGUI    &kp LALT    &kp LCTRL   &kp LSHFT   &none                           &none       &kp C_PREV    &kp C_VOL_DN  &kp C_VOL_UP    &kp C_NEXT   &none  
-    &none &bt_0       &bt_1       &bt_2       &bt_3       &bt BT_CLR                      &none       &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2    &bt BT_SEL 3 &none   
+    &none &none       &none       &none       &none       &none                           &none         &bl BL_TOG   &none         &none           &none        &none 
+    &none &kp LGUI    &kp LALT    &kp LCTRL   &kp LSHFT   &none                           &none         &kp C_PREV   &kp C_VOL_DN  &kp C_VOL_UP    &kp C_NEXT   &none  
+    &none &none       &none       &none       &none       &none                           &bt BT_SEL 0  &bt BT_SEL 1 &bt BT_SEL 2  &bt BT_SEL 3    &none        &none
                                         &trans      &none   &none       &kp C_STOP  &kp C_PP    &kp C_MUTE     
             >;
         };
