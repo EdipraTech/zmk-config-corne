@@ -43,7 +43,7 @@
             bindings = <&kp>, <&kp>;
         };
     };
-    
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -85,7 +85,7 @@
 
         fun_layer {
             bindings = <
-    &none &kp F12 &kp F7  &kp F8  &kp F9      &kp PSCRN                           &none &rgb_ug RGB_TOG &none     &none    &none    &none
+    &none &kp F12 &kp F7  &kp F8  &kp F9      &kp PSCRN                           &none &none &none     &none    &none    &none
     &none &kp F11 &kp F4  &kp F5  &kp F6      &kp SLCK                            &none &kp RSHFT       &kp RCTRL &kp RALT &kp RGUI &none 
     &none &kp F10 &kp F1  &kp F2  &kp F3      &kp PAUSE_BREAK                     &none &none           &none     &none    &none    &none 
                             &kp K_APP   &kp SPACE       &kp TAB     &none   &none   &trans
