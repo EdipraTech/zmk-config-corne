@@ -31,8 +31,8 @@
 #define NUM     1
 #define SYM     2
 #define NAV     3
-#define FUN     4
-#define MED     5 
+#define MED     4
+#define FUN     5 
 
 #define ZMK_POINTING_DEFAULT_MOVE_VAL 1500  // default: 600
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 20    // default: 10
