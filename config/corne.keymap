@@ -10,6 +10,7 @@
 #include <dt-bindings/zmk/backlight.h>
 #include <dt-bindings/zmk/rgb.h>
 
+
 /*
 #define LEFT_POSITIONS  0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29 36 37 38
 #define RIGHT_POSITIONS 6 7 8 9 10 11 18 19 20 21 22 23 30 31 32 33 34 35 39 40 41
@@ -27,11 +28,14 @@
 #define ZMK_MOUSE_DEFAULT_SCRL_VAL 40
 
 #define BASE    0
-#define NAV     1
+#define NUM     1
 #define SYM     2
-#define NUM     3
+#define NAV     3
 #define FUN     4
 #define MED     5 
+
+#define ZMK_POINTING_DEFAULT_MOVE_VAL 1500  // default: 600
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 20    // default: 10
 
 / {
     behaviors {
@@ -51,56 +55,57 @@
 
         default_layer {
             bindings = <
-    &kp ESC  &kp Q       &kp W       &kp F       &kp P       &kp B                                   &kp J           &kp L       &kp U       &kp Y           &kp SEMI   &kp BSLH
-    &kp TAB  &hm LGUI A  &hm LALT R  &hm LCTRL S &hm LSHFT T &kp G                                   &kp M           &hm LSHFT N &hm LCTRL E &hm LALT I      &hm LGUI O &kp SQT
-    &kp HOME &kp Z       &hm RALT X  &kp C       &kp D       &kp V                                   &kp K           &kp H       &kp COMMA   &hm RALT DOT    &kp FSLH   &kp END
-                                        &hm MED TAB &hm NAV DEL &kp BSPC       &hm SYM SPACE &hm NUM RET     &lt FUN LALT
-            >;
-        };
-
-        nav_layer {
-            bindings = <
-    &none &none       &none       &none       &none       &none                           &kp LC(Y)   &kp LC(V)   &kp LC(C)   &kp LC(X)   &kp LC(Z) &none 
-    &none &kp LGUI    &kp LALT    &kp LCTRL   &kp LSHFT   &none                           &kp LEFT    &kp DOWN    &kp UP      &kp RIGHT   &kp CAPS  &none 
-    &none &none       &none       &none       &none       &none                           &kp INS     &kp HOME    &kp PG_DN   &kp PG_UP   &kp END   &none 
-                                        &none       &trans  &none       &kp RET     &kp BSPC    &kp DEL     
-            >;
-        };
-
-        sym_layer {
-            bindings = <
-    &none &kp LBRC    &kp AMPS    &kp STAR    &kp LPAR   &kp RBRC                     &none       &none       &none       &none       &none    &none 
-    &none &kp COLON   &kp DLLR    &kp PRCNT   &kp CARET  &kp PLUS                     &none       &kp RSHFT   &kp RCTRL   &kp RALT    &kp RGUI &none 
-    &none &kp TILDE   &kp EXCL    &kp AT      &kp HASH   &kp PIPE                     &none       &none       &none       &none       &none    &none 
-                                        &kp LPAR   &kp RPAR &kp UNDER   &trans  &none       &none
+    &none &kp Q       &kp W       &kp F       &kp P        &kp B          &kp J  &kp L         &kp U       &kp Y           &kp SEMI   &none
+    &none &hm LGUI A  &hm LALT R  &hm LCTRL S &hm LSHFT T  &kp G          &kp M  &hm LSHFT N   &hm LCTRL E &hm LALT I      &hm LGUI O &none
+    &none &kp Z       &kp X       &kp C       &kp D        &kp V          &kp K  &kp H         &kp COMMA   &kp DOT         &kp FSLH   &none
+                                  &hm MED DEL &hm NAV BSPC &none          &none  &hm NUM SPACE &hm SYM RET
             >;
         };
 
         num_layer {
             bindings = <
-    &none &kp LBKT    &kp N7  &kp N8  &kp N9  &kp RBKT                        &none   &none       &none       &none       &none    &none 
-    &none &kp SQT     &kp N4  &kp N5  &kp N6  &kp EQUAL                       &none   &kp RSHFT   &kp RCTRL   &kp RALT    &kp RGUI &none 
-    &none &kp GRAVE   &kp N1  &kp N2  &kp N3  &kp BSLH                        &none   &none       &none       &none       &none    &none 
-                                &kp DOT &kp N0      &kp MINUS   &none   &trans  &none
+    &none &kp LBRC    &kp F7      &kp F8      &kp F9     &kp RBRC                     &kp LBKT  &kp N7      &kp N8      &kp N9     &kp RBKT  &none 
+    &none &kp COLON   &kp F4      &kp F5      &kp F6     &kp PLUS                     &kp EQUAL &kp N4      &kp N5      &kp N6     &kp SEMI  &none 
+    &none &kp TILDE   &kp F1      &kp F2      &kp F3     &kp LALT                     &kp BSLH  &kp N1      &kp N2      &kp N3     &kp TILDE &none 
+                                  &kp LPAR    &kp RPAR   &none                        &none     &trans      &kp N0     
             >;
         };
 
-        fun_layer {
+        sym_layer {
+            bindings = <
+    &none &kp ESC     &kp LBKT    &kp RBKT    &kp LBRC   &kp RBRC                     &kp TILDE &kp AMPS   &kp ASTRK &kp EQUAL &kp PLUS &none 
+    &none &kp COLON   &kp LCTRL   &kp LALT    &kp SHIFT  &kp PLUS                     &kp GRAVE &kp DLLR   &kp PRCNT &kp CARET &kp SEMI &none 
+    &none &kp TILDE   &kp MINUS   &kp UNDER   &kp F3     &kp SQT                      &kp DQT   &kp EXCL   &kp AT    &kp HASH  &kp BSLH &none 
+                                  &kp LPAR    &kp RPAR   &none                        &none     &none      &trans
+            >;
+        };
+
+        nav_layer {
+            bindings = <
+    &none &kp PSCRN   &kp HOME    &kp UP      &kp END    &kp RBRC             &kp F12   &msc SCRL_UP   &mmv MOVE_UP   &msc SCRL_DOWN  &kp C_MUTE   &none 
+    &none &kp PG_UP   &kp LEFT    &kp DOWN    &kp RIGHT  &kp PG_UP            &kp PG_DN &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &kp C_VOL_UP &none 
+    &none &kp PG_DN   &kp N1      &kp CTRL    &kp SHIFT  &kp HOME             &kp END   &kp C_PREV     &kp C_PAUSE    &kp C_NEXT      &kp C_VOL_DN &none 
+                                  &none       &trans     &none                &none     &none          &none
+            >;
+        };
+
+        media_layer {
+            bindings = <
+    &none &none       &none       &none       &none       &none                           &none        &bl BL_TOG   &rgb_ug RGB_TOG &none           &none        &none 
+    &none &kp LGUI    &kp LALT    &kp LCTRL   &kp LSHFT   &none                           &none        &kp C_PREV   &kp C_VOL_DN    &kp C_VOL_UP    &kp C_NEXT   &none  
+    &none &none       &none       &none       &none       &none                           &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2    &bt BT_SEL 3    &none        &none
+                                  &trans      &none       &none                           &kp C_STOP   &kp C_PP    &kp C_MUTE     
+            >;
+        };
+
+/*        fun_layer {
             bindings = <
     &none &kp F12 &kp F7  &kp F8  &kp F9      &kp PSCRN                           &none &none     &none     &none    &none    &none
     &none &kp F11 &kp F4  &kp F5  &kp F6      &kp SLCK                            &none &kp RSHFT &kp RCTRL &kp RALT &kp RGUI &none 
     &none &kp F10 &kp F1  &kp F2  &kp F3      &kp PAUSE_BREAK                     &none &none     &none     &none    &none    &none 
                             &kp K_APP   &kp SPACE       &kp TAB     &none   &none   &trans
             >;
-        };
+        }; */
 
-        media_layer {
-            bindings = <
-    &none &none       &none       &none       &none       &none                           &none         &bl BL_TOG   &rgb_ug RGB_TOG &none           &none        &none 
-    &none &kp LGUI    &kp LALT    &kp LCTRL   &kp LSHFT   &none                           &none         &kp C_PREV   &kp C_VOL_DN    &kp C_VOL_UP    &kp C_NEXT   &none  
-    &none &none       &none       &none       &none       &none                           &bt BT_SEL 0  &bt BT_SEL 1 &bt BT_SEL 2    &bt BT_SEL 3    &none        &none
-                                        &trans      &none   &none       &kp C_STOP  &kp C_PP    &kp C_MUTE     
-            >;
-        };
     };
 };
